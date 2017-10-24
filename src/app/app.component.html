@@ -1,0 +1,28 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+  <img width="300" src="assets\Rosetta.jpg">
+</div>
+<button mat-fab color="primary">Test</button>
+
+<section class="section">
+  <mat-radio-button >Meme1</mat-radio-button>
+</section>
+<section class="section">
+  <mat-radio-button >Meme2</mat-radio-button>
+</section>
+<section class="section">
+  <mat-radio-button >Meme3</mat-radio-button>
+</section>
+<section class="section">
+  <mat-menu #appMenu="matMenu">
+    <button mat-menu-item> Settings </button>
+    <button mat-menu-item> Help </button>
+  </mat-menu>
+
+  <button mat-icon-button trigger="appMenu">
+      <mat-icon>more_vert</mat-icon>
+   </button>
+</section>

@@ -1,0 +1,14 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+body {
+    padding: 23em 23em;
+    background: rgb(155, 27, 27);
+}
+
+.section 
+{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
