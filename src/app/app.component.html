@@ -5,24 +5,20 @@
   </h1>
   <img width="300" src="assets\Rosetta.jpg">
 </div>
-<button mat-fab color="primary">Test</button>
+<section class="section">
+  The proximity between {{stringA}} and {{stringB}} is: {{testObject}}!
+</section>
+<button mat-fab color="primary" (click)="onClick(stringA, stringB)">Run</button>
 
 <section class="section">
-  <mat-radio-button >Meme1</mat-radio-button>
+  <input [(ngModel)]="stringA" matInput placeholder="First Word">
 </section>
 <section class="section">
-  <mat-radio-button >Meme2</mat-radio-button>
+    <input [(ngModel)]="stringB" matInput placeholder="Second Word">
 </section>
-<section class="section">
-  <mat-radio-button >Meme3</mat-radio-button>
-</section>
+
 <section class="section">
   <mat-menu #appMenu="matMenu">
     <button mat-menu-item> Settings </button>
     <button mat-menu-item> Help </button>
   </mat-menu>
-
-  <button mat-icon-button trigger="appMenu">
-      <mat-icon>more_vert</mat-icon>
-   </button>
-</section>
