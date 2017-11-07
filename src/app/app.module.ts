@@ -2,29 +2,45 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule, Routes } from '@angular/router';
 
 import { MatButtonModule,
          MatListModule,
          MatMenuModule,
-         MatSidenavModule} from '@angular/material';
+         MatSidenavModule,
+         MatToolbarModule,
+         MatIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { ContactService } from './Services/contact.service';
+import { RosettaService } from './Services/rosetta.service';
+import { TypesComponent } from './Components/types/types.component';
+
+const appRoutes: Routes = [
+  { path: 'types', component: TypesComponent}
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TypesComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    RouterModule.forRoot(
+      appRoutes,
+      { enableTracing: true } // for debugging purposes
+    ),
     MatButtonModule,
     MatListModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule
   ],
-  providers: [ ContactService ],
+  providers: [ ContactService, RosettaService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

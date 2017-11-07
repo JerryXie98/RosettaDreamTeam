@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IPeople } from './Data Models/ipeople';
 import { ContactService } from './Services/contact.service';
+import { IRosettaFunctions } from './Data Models/irosetta-functions';
+import {RosettaService} from './Services/rosetta.service';
 
 @Component({
   selector: 'app-root',
@@ -9,16 +11,19 @@ import { ContactService } from './Services/contact.service';
 })
 export class AppComponent {
   title = 'Rosetta';
-  myContactList: IPeople[];
+  // myContactList: IPeople[];
+  rosettaFunctionList: IRosettaFunctions[];
   matListCheck: string[];
 
-  constructor(private _contactService: ContactService) {
-    this._contactService.getContacts();
-    this.matListCheck = ['fuck', 'shit', 'trash'];
+  constructor(private _rosettaService: RosettaService) {
+    // this._rosettaService.getFunctionsList();
+    this.matListCheck = ['List1', 'List2', 'List3'];
   }
 
   OnClick() {
-    this.myContactList = this._contactService.getContacts();
-    this._contactService.tanayTest();
+
+    this.rosettaFunctionList = this._rosettaService.getFunctionsList();
+    // Used for Testing Purposes
+    // this.myContactList = this._contactService.getContacts();
   }
 }

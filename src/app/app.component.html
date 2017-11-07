@@ -1,28 +1,64 @@
-<button mat-raised-button color="primary" class="top" [matMenuTriggerFor]="mainMenu">
-  Main Menu
-</button>
+<mat-sidenav-container fullscreen>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <router-outlet></router-outlet>
 
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
+  <mat-sidenav #sidenav mode="over">
+    <div class="top-indent">
+      <div class="sidenav-content">Home</div>
+      <div class="sidenav-content">Settings</div>
+    </div>
+  </mat-sidenav>
 
-  <img width="300" src="assets\Rosetta.jpg">
-</div>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>
+        <mat-grid-list col="4" rowHeight="2:1" class="indent">
+          <button mat-button>ID DICTIONARY</button>
+          <button mat-button>BLOCKING</button>
+          <button mat-button>SYNONYM DB</button>
+          <button mat-button>TYPES</button>
+        </mat-grid-list>
+      </span>
+    </mat-toolbar-row>
+  </mat-toolbar>
 
-<button mat-raised-button color="primary"(click)="OnClick()">Get Contacts!</button>
+  <button mat-button class="top-left" (click)="sidenav.toggle()">
+    <mat-icon>whatshot</mat-icon>
+  </button>
 
-<h2>Contact List</h2>
-<mat-list>
-  <mat-list-item *ngFor="let people of myContactList">
-    <h4 mat-line>{{people.name}}</h4>
-  </mat-list-item>
-</mat-list>
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="mainMenu">
+    Main Menu
+  </button>
 
-<mat-menu #mainMenu="matMenu">
-  <button mat-menu-item> Distance Functions </button>
-  <button mat-menu-item> Encorder </button>
-  <button mat-menu-item> Standardizer </button>
-</mat-menu>
 
+
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{title}}!
+    </h1>
+
+    <img width="300" src="assets\Rosetta.jpg">
+  </div>
+
+  <button mat-raised-button color="primary" (click)="OnClick()">Get Contacts!</button>
+
+  <h2>Contact List</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let function of rosettaFunctionList">
+      <h4 mat-line>{{function.name}}</h4>
+        <mat-list-item *ngFor="let constructor of function.constructors">
+          <mat-list-item *ngFor="let parameter of constructor.parameters">
+            <h4 mat-line >Parameter Name: {{parameter.name}}</h4>
+            <h4 mat-line >Parameter Type: {{parameter.type}}</h4>
+          </mat-list-item>
+        </mat-list-item>
+    </mat-list-item>
+  </mat-list>
+
+  <mat-menu #mainMenu="matMenu">
+    <button mat-menu-item> Distance Functions </button>
+    <button mat-menu-item> Encorder </button>
+    <button mat-menu-item> Standardizer </button>
+  </mat-menu>
+</mat-sidenav-container>
 

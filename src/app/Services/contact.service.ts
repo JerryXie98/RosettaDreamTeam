@@ -19,14 +19,7 @@ export class ContactService {
     return this.contactsList;
   }
 
-  tanayTest() {
-    this._http.get(this.GO_TEST).subscribe(data => {
-      console.log(data);
-    });
-  }
-
   readContacts() {
-    console.log(this.contactsList[0].name);
     this.myContactsList = this.contactsList;
   }
 
