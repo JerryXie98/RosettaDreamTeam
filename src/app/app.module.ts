@@ -1,16 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule,
+         MatListModule,
+         MatMenuModule,
+         MatSidenavModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { ContactService } from './Services/contact.service';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatListModule,
+    MatMenuModule,
+    MatSidenavModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ ContactService ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
