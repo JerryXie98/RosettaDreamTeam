@@ -1,0 +1,17 @@
+<div class="section">
+  <mat-form-field>
+    <input [(ngModel)]="stringA" matInput placeholder="String 1">
+  </mat-form-field>
+</div>
+<div class="section">
+  <mat-form-field>
+    <input [(ngModel)]="stringB" matInput placeholder="String 2">
+  </mat-form-field>
+</div>
+<div class="section">
+  <button mat-raised-button="" color="primary" (click)="runDistanceFunction('JaroWinklerDistanceCalculator', stringA, stringB)">Test Function</button>
+</div>
+<div class="section">
+  <p mat-line>{{output}}</p>
+</div>
+

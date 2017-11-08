@@ -4,19 +4,19 @@
 
   <mat-sidenav #sidenav mode="over">
     <div class="top-indent">
-      <div class="sidenav-content">Home</div>
+      <div class="sidenav-content" routerLink="home">Home</div>
       <div class="sidenav-content">Settings</div>
     </div>
   </mat-sidenav>
 
-  <mat-toolbar color="primary">
+  <mat-toolbar color="primary" class="fixed-header">
     <mat-toolbar-row>
       <span>
         <mat-grid-list col="4" rowHeight="2:1" class="indent">
           <button mat-button>ID DICTIONARY</button>
           <button mat-button>BLOCKING</button>
           <button mat-button>SYNONYM DB</button>
-          <button mat-button>TYPES</button>
+          <button mat-button routerLink="types">TYPES</button>
         </mat-grid-list>
       </span>
     </mat-toolbar-row>
@@ -26,40 +26,7 @@
     <mat-icon>whatshot</mat-icon>
   </button>
 
-  <button mat-raised-button color="primary" [matMenuTriggerFor]="mainMenu">
-    Main Menu
-  </button>
-
-
-
-  <div style="text-align:center">
-    <h1>
-      Welcome to {{title}}!
-    </h1>
-
-    <img width="300" src="assets\Rosetta.jpg">
-  </div>
-
-  <button mat-raised-button color="primary" (click)="OnClick()">Get Functions!</button>
-
-  <h2>Function List</h2>
-  <mat-list>
-    <mat-list-item *ngFor="let function of rosettaFunctionList">
-      <h4 mat-line>{{function.name}}</h4>
-      <mat-list-item *ngFor="let constructor of function.constructors">
-        <mat-list-item *ngFor="let parameter of constructor.parameters">
-          <h4 mat-line >Parameter Name: {{parameter.name}}</h4>
-          <h4 mat-line >Parameter Type: {{parameter.type}}</h4>
-        </mat-list-item>
-      </mat-list-item>
-    </mat-list-item>
-  </mat-list>
-
-  <mat-menu #mainMenu="matMenu">
-    <button mat-menu-item> Distance Functions </button>
-    <button mat-menu-item> Encorder </button>
-    <button mat-menu-item> Standardizer </button>
-  </mat-menu>
+  <router-outlet></router-outlet>
 
 </mat-sidenav-container>
 

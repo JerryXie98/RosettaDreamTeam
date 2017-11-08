@@ -1,0 +1,9 @@
+
+
+.mat-expansion-panel {
+  margin-left: 12.5%;
+  margin-top: 20px;
+  width: 75%;
+  align-items: center;
+  justify-content: space-between;
+}

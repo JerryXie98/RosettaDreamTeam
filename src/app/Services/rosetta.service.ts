@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 export class RosettaService {
 
   functionsList: IRosettaFunctions[];
+  functionValue: any;
   LISTFUNCTIONS_URL = 'http://localhost:61899/api/distancefunction/ListFunctions';
 
   constructor(private _http: HttpClient) { }
@@ -17,4 +18,10 @@ export class RosettaService {
     return this.functionsList;
   }
 
+  distanceFunction(url: string): Number {
+    this._http.get(url).subscribe( data => {
+      this.functionValue = data;
+    });
+    return this.functionValue;
+  }
 }
