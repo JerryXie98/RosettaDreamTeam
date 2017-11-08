@@ -40,18 +40,18 @@
     <img width="300" src="assets\Rosetta.jpg">
   </div>
 
-  <button mat-raised-button color="primary" (click)="OnClick()">Get Contacts!</button>
+  <button mat-raised-button color="primary" (click)="OnClick()">Get Functions!</button>
 
-  <h2>Contact List</h2>
+  <h2>Function List</h2>
   <mat-list>
     <mat-list-item *ngFor="let function of rosettaFunctionList">
       <h4 mat-line>{{function.name}}</h4>
-        <mat-list-item *ngFor="let constructor of function.constructors">
-          <mat-list-item *ngFor="let parameter of constructor.parameters">
-            <h4 mat-line >Parameter Name: {{parameter.name}}</h4>
-            <h4 mat-line >Parameter Type: {{parameter.type}}</h4>
-          </mat-list-item>
+      <mat-list-item *ngFor="let constructor of function.constructors">
+        <mat-list-item *ngFor="let parameter of constructor.parameters">
+          <h4 mat-line >Parameter Name: {{parameter.name}}</h4>
+          <h4 mat-line >Parameter Type: {{parameter.type}}</h4>
         </mat-list-item>
+      </mat-list-item>
     </mat-list-item>
   </mat-list>
 
@@ -60,5 +60,6 @@
     <button mat-menu-item> Encorder </button>
     <button mat-menu-item> Standardizer </button>
   </mat-menu>
+
 </mat-sidenav-container>
 

@@ -15,15 +15,18 @@ import { AppComponent } from './app.component';
 import { ContactService } from './Services/contact.service';
 import { RosettaService } from './Services/rosetta.service';
 import { TypesComponent } from './Components/types/types.component';
+import { HomeComponent } from './Components/home/home.component';
 
 const appRoutes: Routes = [
-  { path: 'types', component: TypesComponent}
+  { path: 'types', component: TypesComponent},
+  { path: 'home', component: HomeComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    TypesComponent
+    TypesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(
       appRoutes,
-      { enableTracing: true } // for debugging purposes
+      // { enableTracing: true } // for debugging purposes
     ),
     MatButtonModule,
     MatListModule,
