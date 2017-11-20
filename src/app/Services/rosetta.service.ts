@@ -7,7 +7,10 @@ export class RosettaService {
 
   functionsList: IRosettaFunctions[];
   functionValue: any;
-  LISTFUNCTIONS_URL = 'http://localhost:61899/api/distancefunction/ListFunctions';
+  LISTFUNCTIONS_URL = 'http://localhost:52286/api/distancefunction/ListFunctions';
+  URLTEMPLATE = 'http://localhost:52286/api/distancefunction/';
+  JAROWINKLERNAME = 'JaroWinklerDistanceCalculator';
+  urlString: string;
 
   constructor(private _http: HttpClient) { }
 
@@ -18,8 +21,9 @@ export class RosettaService {
     return this.functionsList;
   }
 
-  distanceFunction(url: string): Number {
-    this._http.get(url).subscribe( data => {
+  distanceFunction(functionName: string, stringA: string, stringB: string): Number {
+    this.urlString = this.URLTEMPLATE + functionName + '?strA=' + stringA + '&strB=' + stringB;
+    this._http.get(this.urlString).subscribe( data => {
       this.functionValue = data;
     });
     return this.functionValue;
