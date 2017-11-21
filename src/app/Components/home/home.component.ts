@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IRosettaFunctions } from '../../Data Models/irosetta-functions';
 import { RosettaService } from '../../Services/rosetta.service';
+import { ConfigService } from '../../Services/config.service';
 
 @Component({
   selector: 'app-home',
@@ -12,12 +13,19 @@ export class HomeComponent implements OnInit {
   rosettaFunctionList: IRosettaFunctions[];
   matListCheck: string[];
 
-  constructor(private _rosettaService: RosettaService) {
+  constructor(private _rosettaService: RosettaService, private _configService: ConfigService) {}
+
+  RosettaClick() {
+    this._configService.sendDummyConfig().subscribe(data => {
+        console.log(data);
+      }
+    );
   }
 
-  OnClick() {
-
-    this.rosettaFunctionList = this._rosettaService.getFunctionsList();
+  FunctionClick() {
+     this._rosettaService.getFunctionsList().subscribe(data => {
+       this.rosettaFunctionList = data['functions'];
+     });
   }
 
   ngOnInit() {

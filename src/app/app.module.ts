@@ -16,6 +16,7 @@ import { MatButtonModule,
 import { AppComponent } from './app.component';
 import { ContactService } from './Services/contact.service';
 import { RosettaService } from './Services/rosetta.service';
+import { ConfigService} from './Services/config.service';
 import { TypesComponent } from './Components/types/types.component';
 import { HomeComponent } from './Components/home/home.component';
 import { DistanceFunctionComponent } from './Components/distance-function/distance-function.component';
@@ -31,7 +32,7 @@ const appRoutes: Routes = [
     AppComponent,
     TypesComponent,
     HomeComponent,
-    DistanceFunctionComponent
+    DistanceFunctionComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +51,7 @@ const appRoutes: Routes = [
     MatIconModule,
     MatExpansionModule
   ],
-  providers: [ ContactService, RosettaService ],
+  providers: [ ContactService, RosettaService, ConfigService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

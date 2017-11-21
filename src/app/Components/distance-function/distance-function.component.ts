@@ -9,7 +9,7 @@ import {RosettaService} from '../../Services/rosetta.service';
 export class DistanceFunctionComponent implements OnInit {
   URLTEMPLATE = 'http://localhost:61899/api/distancefunction/';
   urlString: string;
-  output: Number;
+  output: any;
   constructor(private _rosettaService: RosettaService) { }
 
   ngOnInit() {
@@ -17,7 +17,21 @@ export class DistanceFunctionComponent implements OnInit {
 
   runDistanceFunction (functionName: string, stringA: string, stringB: string) {
     this.urlString = this.URLTEMPLATE + functionName + '?strA=' + stringA + '&strB=' + stringB;
-    this.output = this._rosettaService.distanceFunction(this.urlString);
-    console.log('Result is:' + this.output);
+    this._rosettaService.distanceFunction(this.urlString).subscribe(
+      data => {
+        this.output = data;
+      },
+      err => {
+        if ( err.error instanceof Error) {
+          // Client-side Error
+          console.log('An error occurred:', err.error.message);
+        } else {
+          // Backend Error
+          console.log(`Backend returned code ${err.status}`);
+        }
+      }
+    );
   }
+
 }
+
