@@ -1,9 +1,29 @@
 <mat-expansion-panel style="margin-top: 50px">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      Integer
+      {{integer}}
     </mat-panel-title>
   </mat-expansion-panel-header>
+  <mat-form-field>
+      <input matInput placeholder="Title" [(ngModel)]="integer">
+  </mat-form-field>
+<div>
+  <mat-form-field>
+      <mat-select [(ngModel)]="function" placeholder="Method" label = "name">
+        <mat-option *ngFor="let function of rosettaFunctionList" [value]="function" >
+            {{function.name}}                           
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+      <input matInput type="text" placeholder="Expression" [(ngModel)]="expression"/>
+      <mat-icon matSuffix>mode_edit</mat-icon>
+      <button mat-button *ngIf="expression" matSuffix mat-icon-button aria-label="Clear" (click)="expression=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+</div>
   <app-distance-function></app-distance-function>
 </mat-expansion-panel>
 

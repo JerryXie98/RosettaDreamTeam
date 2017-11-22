@@ -29,3 +29,53 @@
   background: #3f51b5;
   height: 60px;
 }
+
+.mat-expansion-panel {
+  margin-left: 12.5%;
+  margin-top: 20px;
+  width: 75%;
+  align-items: center;
+  justify-content: space-between;
+}
+.mat-expansion-panel-title {
+  margin-left: 12.5%;
+  margin-top: 20px;
+  width: 75%;
+  align-items: left;
+  justify-content: space-between;
+}
+
+.mat-expansion-panel-header {
+  margin-left: 8%;
+  margin-top: 20px;
+  padding:10px;
+  width: 89%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-title {
+  padding:10px;
+  width: 80%;
+  align-items: left;
+  text-align: left;
+  color: FFFFFF;
+  justify-content: space-between;
+}
+
+.panel-menu {
+  padding-right: 15px;
+}
+
+.folder {
+  position: absolute;
+  left: 13%;
+  padding:10px;
+}
+
+.goto-progress-bar-button {
+  margin-left: 0px;
+  width: 50%;
+  margin-left: 8%;
+  text-align: left;
+}

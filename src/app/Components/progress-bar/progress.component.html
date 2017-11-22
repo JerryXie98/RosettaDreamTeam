@@ -1,0 +1,61 @@
+
+<mat-horizontal-stepper [linear]="isLinear">
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Project Setup</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Data Sources</ng-template>
+      <mat-form-field>
+        <input matInput placeholder="Data Source" formControlName="secondCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup">
+        <form [formGroup]="thirdFormGroup">
+          <ng-template matStepLabel>Standardization</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Standardization Method" formControlName="thirdCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+    <mat-step [stepControl]="forthFormGroup">
+        <form [formGroup]="forthFormGroup">
+         <ng-template matStepLabel>Blocking</ng-template>
+            <mat-form-field>
+              <input matInput placeholder="Blocking Method" formControlName="forthCtrl" required>
+              </mat-form-field>
+            <div>
+             <button mat-button matStepperPrevious>Back</button>
+             <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+  <mat-step [stepControl]="fifthFormGroup">
+      <form [formGroup]="fifthFormGroup">
+        <ng-template matStepLabel>Matching</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Matching Method" formControlName="fifthCtrl" required>
+          </mat-form-field>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+        </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

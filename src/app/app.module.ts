@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,6 +11,10 @@ import { MatButtonModule,
          MatSidenavModule,
          MatToolbarModule,
          MatIconModule,
+         MatSelectModule,
+         MatInputModule,
+         MatCardModule,
+         MatStepperModule,
          MatExpansionModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -19,11 +23,13 @@ import { RosettaService } from './Services/rosetta.service';
 import { TypesComponent } from './Components/types/types.component';
 import { HomeComponent } from './Components/home/home.component';
 import { DistanceFunctionComponent } from './Components/distance-function/distance-function.component';
+import { ProgressComponent } from './Components/progress-bar/progress.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'types', component: TypesComponent},
-  { path: 'home', component: HomeComponent }
+  { path: 'home', component: HomeComponent },
+  { path: 'progress-bar', component: ProgressComponent }
 ];
 
 @NgModule({
@@ -31,15 +37,18 @@ const appRoutes: Routes = [
     AppComponent,
     TypesComponent,
     HomeComponent,
-    DistanceFunctionComponent
+    DistanceFunctionComponent,
+    ProgressComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
+    
       // { enableTracing: true } // for debugging purposes
     ),
     MatButtonModule,
@@ -48,6 +57,10 @@ const appRoutes: Routes = [
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
+    MatSelectModule,
+    MatInputModule,
+    MatCardModule,
+    MatStepperModule,
     MatExpansionModule
   ],
   providers: [ ContactService, RosettaService ],

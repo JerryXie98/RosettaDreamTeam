@@ -1,14 +1,52 @@
-<button mat-raised-button color="primary" [matMenuTriggerFor]="mainMenu">
-  Main Menu
-</button>
+<div style="text-align:center" >
 
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
+    <mat-toolbar class="mat-expansion-panel-title">
+      My Projects
+    </mat-toolbar>
 
-  <img width="300" src="assets\Rosetta.jpg">
 </div>
+<div >
+  <mat-expansion-panel *ngFor="let project of rosettaProjectList">
+      <mat-expansion-panel-header class="mat-expansion-panel-header"> 
+        <mat-icon mat-list-icon class="folder">folder</mat-icon>
+        <mat-panel-title class="project-title">
+          {{project}} 
+        </mat-panel-title>
+          
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="panel-menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+          <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+               <span>Share</span>
+              </button>
+              <button mat-menu-item>
+                <span>Rename</span>
+              </button>
+              <button mat-menu-item disabled>
+                <span>Delete</span>
+              </button>
+            </mat-menu>
+        </mat-expansion-panel-header>
+
+      <button mat-button routerLink="../progress-bar" class="goto-progress-bar-button">Progress Bar</button>
+
+  </mat-expansion-panel>
+     
+      
+</div>
+<div class = "folder">
+    <mat-form-field>
+    <input matInput placeholder="Project" #projectName />
+    </mat-form-field>
+    
+    <button mat-button>
+      Add
+    </button>
+    
+</div>
+
+
 
 <button mat-raised-button color="primary" (click)="OnClick()">Get Functions!</button>
 
