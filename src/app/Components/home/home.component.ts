@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IRosettaFunctions } from '../../Data Models/irosetta-functions';
 import { RosettaService } from '../../Services/rosetta.service';
 import { MatCardModule } from '@angular/material';
+import { ConfigService } from '../../Services/config.service';
 
 @Component({
   selector: 'app-home',
@@ -17,11 +18,21 @@ export class HomeComponent implements OnInit {
     "Second Carrier"
   ];
 
-  constructor(private _rosettaService: RosettaService) {
-  }
+  constructor(private _rosettaService: RosettaService, private _configService: ConfigService) {}
 
   OnClick() {
     this.rosettaFunctionList = this._rosettaService.getFunctionsList();
+  RosettaClick() {
+    this._configService.sendDummyConfig().subscribe(data => {
+        console.log(data);
+      }
+    );
+  }
+
+  FunctionClick() {
+     this._rosettaService.getFunctionsList().subscribe(data => {
+       this.rosettaFunctionList = data['functions'];
+     });
   }
 
   ngOnInit() {

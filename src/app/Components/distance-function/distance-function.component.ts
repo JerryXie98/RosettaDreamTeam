@@ -7,7 +7,6 @@ import {RosettaService} from '../../Services/rosetta.service';
   styleUrls: ['./distance-function.component.css']
 })
 export class DistanceFunctionComponent implements OnInit {
-  // URLTEMPLATE = 'http://localhost:52286/api/distancefunction/';
   urlString: string;
   output: Number;
   constructor(private _rosettaService: RosettaService) { }
@@ -15,16 +14,9 @@ export class DistanceFunctionComponent implements OnInit {
   ngOnInit() {
   }
 
- // runDistanceFunction (functionName: string, stringA: string, stringB: string) {
-  //  this.urlString = this.URLTEMPLATE + functionName + '?strA=' + stringA + '&strB=' + stringB;
-   //this.output = this._rosettaService.distanceFunction(this.urlString);
-   // console.log('Result is:' + this.output);
-  //}
-
   runDistanceFunction(functionName: string, stringA: string, stringB: string) {
 
     this.output = this._rosettaService.distanceFunction(functionName, stringA, stringB);
     
   }
-
 }

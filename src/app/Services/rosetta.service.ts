@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IRosettaFunctions } from '../Data Models/irosetta-functions';
 import {HttpClient} from '@angular/common/http';
+import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class RosettaService {
@@ -28,4 +29,6 @@ export class RosettaService {
     });
     return this.functionValue;
   }
+
+  
 }

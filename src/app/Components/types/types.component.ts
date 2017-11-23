@@ -15,12 +15,6 @@ export class TypesComponent implements OnInit {
 
   ngOnInit() {
     this.rosettaFunctionList = this._rosettaService.getFunctionsList();
-    var functionsArray = new Array(this.rosettaFunctionList);
-   
-    for(var i=0; i<this.rosettaFunctionList.length; i++)
-    {
-
-    }
     
     console.log('Types loaded!');
   }

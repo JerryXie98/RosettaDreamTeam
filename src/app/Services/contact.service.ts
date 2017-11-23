@@ -7,7 +7,6 @@ export class ContactService {
 
   contactsList: IPeople[];
   CONTACT_URL = 'https://address-book-demo.herokuapp.com/api/contacts';
-  GO_TEST = 'http://localhost:8080/get';
   myContactsList: IPeople[];
 
   constructor(private _http: HttpClient) { }
