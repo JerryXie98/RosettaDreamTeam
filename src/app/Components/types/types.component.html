@@ -12,7 +12,7 @@
 <mat-expansion-panel style="margin-top: 50px">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      Integer
+      {{integer}}
     </mat-panel-title>
   </mat-expansion-panel-header>
   <mat-form-field>
@@ -20,7 +20,7 @@
   </mat-form-field>
 <div>
   <mat-form-field>
-      <mat-select [(ngModel)]="function" placeholder="Method" label = "name">
+      <mat-select [(ngModel)]="functionChosen" placeholder="Method" label = "name">
         <mat-option *ngFor="let function of rosettaFunctionList" [value]="function" >
             {{function.name}}
         </mat-option>
@@ -35,7 +35,7 @@
       </button>
     </mat-form-field>
 </div>
-  <app-distance-function></app-distance-function>
+  <app-distance-function [functionChosen]="functionChosen"></app-distance-function>
 </mat-expansion-panel>
 
 <mat-expansion-panel>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { IRosettaFunctions } from '../../Data Models/irosetta-functions';
 import { RosettaService } from '../../Services/rosetta.service';
 
@@ -10,6 +10,7 @@ import { RosettaService } from '../../Services/rosetta.service';
 export class TypesComponent implements OnInit {
   rosettaFunctionList: IRosettaFunctions[];
   integer = 'Integer';
+
   expression = '';
   constructor(private _rosettaService: RosettaService) { }
 

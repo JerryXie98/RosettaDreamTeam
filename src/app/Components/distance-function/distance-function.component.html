@@ -9,7 +9,7 @@
   </mat-form-field>
 </div>
 <div class="section">
-  <button mat-raised-button="" color="primary" (click)="runDistanceFunction('JaroWinklerDistanceCalculator', stringA, stringB)">Test Function</button>
+  <button mat-raised-button="" color="primary" (click)="runDistanceFunction(functionChosen.name, stringA, stringB)">Test Function</button>
 </div>
 <div class="section">
   <p mat-line>{{output}}</p>

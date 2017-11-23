@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RosettaService} from '../../Services/rosetta.service';
 
 @Component({
@@ -9,6 +9,8 @@ import {RosettaService} from '../../Services/rosetta.service';
 export class DistanceFunctionComponent implements OnInit {
   urlString: string;
   output: any;
+  @Input('functionChosen') functionChosen: any;
+
   constructor(private _rosettaService: RosettaService) { }
 
   ngOnInit() {
@@ -18,5 +20,6 @@ export class DistanceFunctionComponent implements OnInit {
     this._rosettaService.distanceFunction(functionName, stringA, stringB).subscribe(data => {
       this.output = data;
     });
+    console.log(this.functionChosen.name);
   }
 }

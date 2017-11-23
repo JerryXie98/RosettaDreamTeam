@@ -10,7 +10,6 @@ export class RosettaService {
   functionValue: any;
   LISTFUNCTIONS_URL = 'http://localhost:61899/api/distancefunction/ListFunctions';
   URLTEMPLATE = 'http://localhost:61899/api/distancefunction/';
-  JAROWINKLERNAME = 'JaroWinklerDistanceCalculator';
   urlString: string;
 
   constructor(private _http: HttpClient) { }
