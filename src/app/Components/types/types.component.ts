@@ -9,13 +9,15 @@ import { RosettaService } from '../../Services/rosetta.service';
 })
 export class TypesComponent implements OnInit {
   rosettaFunctionList: IRosettaFunctions[];
-  integer = "Integer";
+  integer = 'Integer';
   expression = '';
   constructor(private _rosettaService: RosettaService) { }
 
   ngOnInit() {
-    this.rosettaFunctionList = this._rosettaService.getFunctionsList();
-    
+    this._rosettaService.getFunctionsList().subscribe(data => {
+      this.rosettaFunctionList = data['functions'];
+    });
+
     console.log('Types loaded!');
   }
 

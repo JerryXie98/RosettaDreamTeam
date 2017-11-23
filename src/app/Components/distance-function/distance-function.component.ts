@@ -8,15 +8,15 @@ import {RosettaService} from '../../Services/rosetta.service';
 })
 export class DistanceFunctionComponent implements OnInit {
   urlString: string;
-  output: Number;
+  output: any;
   constructor(private _rosettaService: RosettaService) { }
 
   ngOnInit() {
   }
 
   runDistanceFunction(functionName: string, stringA: string, stringB: string) {
-
-    this.output = this._rosettaService.distanceFunction(functionName, stringA, stringB);
-    
+    this._rosettaService.distanceFunction(functionName, stringA, stringB).subscribe(data => {
+      this.output = data;
+    });
   }
 }

@@ -9,11 +9,10 @@
   </span>
 </mat-toolbar>
 
-
 <mat-expansion-panel style="margin-top: 50px">
   <mat-expansion-panel-header>
     <mat-panel-title>
-      {{integer}}
+      Integer
     </mat-panel-title>
   </mat-expansion-panel-header>
   <mat-form-field>
@@ -23,7 +22,7 @@
   <mat-form-field>
       <mat-select [(ngModel)]="function" placeholder="Method" label = "name">
         <mat-option *ngFor="let function of rosettaFunctionList" [value]="function" >
-            {{function.name}}                           
+            {{function.name}}
         </mat-option>
       </mat-select>
   </mat-form-field>

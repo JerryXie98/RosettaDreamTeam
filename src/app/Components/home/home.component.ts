@@ -14,23 +14,20 @@ export class HomeComponent implements OnInit {
   rosettaFunctionList: IRosettaFunctions[];
   matListCheck: string[];
   rosettaProjectList = [
-    "EDU to AESD",
-    "Second Carrier"
+    'EDU to AESD',
+    'Second Carrier'
   ];
 
   constructor(private _rosettaService: RosettaService, private _configService: ConfigService) {}
   ngOnInit() {
     console.log('Home is loaded!');
   }
-  OnClick() {
-    this.rosettaFunctionList = this._rosettaService.getFunctionsList();
+
+  AddProject(addProject: string) {
+    this.rosettaProjectList.push(addProject);
   }
 
-  AddProject(addProject: string){
-
-    this.rosettaProjectList.push(addProject)
-  }
- /* RosettaClick() {
+  RosettaClick() {
     this._configService.sendDummyConfig().subscribe(data => {
         console.log(data);
       }
@@ -42,8 +39,4 @@ export class HomeComponent implements OnInit {
        this.rosettaFunctionList = data['functions'];
      });
   }
-*/
-  
-
-
 }

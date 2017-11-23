@@ -10,16 +10,19 @@ import { ConfigService } from '../../Services/config.service';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
+  title = 'Rosetta';
+  rosettaFunctionList: IRosettaFunctions[];
+
+
   ngOnInit(): void {
     console.log('Settings is loaded!');
   }
-  title = 'Rosetta';
-  rosettaFunctionList: IRosettaFunctions[];
 
   constructor(private _rosettaService: RosettaService, private _configService: ConfigService) {}
 
   OnClick() {
-    this.rosettaFunctionList = this._rosettaService.getFunctionsList();
- 
+    this._rosettaService.getFunctionsList().subscribe(data => {
+      this.rosettaFunctionList = data['functions'];
+    });
   }
 }
