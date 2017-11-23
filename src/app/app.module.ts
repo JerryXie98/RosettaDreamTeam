@@ -25,12 +25,14 @@ import { TypesComponent } from './Components/types/types.component';
 import { HomeComponent } from './Components/home/home.component';
 import { DistanceFunctionComponent } from './Components/distance-function/distance-function.component';
 import { ProgressComponent } from './Components/progress-bar/progress.component';
+import { SettingsComponent } from './Components/settings/settings.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'types', component: TypesComponent},
   { path: 'home', component: HomeComponent },
-  { path: 'progress-bar', component: ProgressComponent }
+  { path: 'progress-bar', component: ProgressComponent },
+  { path: 'settings', component: SettingsComponent }
 ];
 
 @NgModule({
@@ -39,10 +41,8 @@ const appRoutes: Routes = [
     TypesComponent,
     HomeComponent,
     DistanceFunctionComponent,
-<<<<<<< HEAD
-    ProgressComponent
-=======
->>>>>>> 26d59fbcf26237b110f90dc5009f53f9f8b97c9c
+    ProgressComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,26 +1,15 @@
 <mat-sidenav-container fullscreen>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <router-outlet></router-outlet>
-
+  
   <mat-sidenav #sidenav mode="over">
     <div class="top-indent">
       <div class="sidenav-content" routerLink="home">Home</div>
-      <div class="sidenav-content">Settings</div>
+      <div class="sidenav-content" routerLink="settings">Settings</div>
     </div>
   </mat-sidenav>
 
-  <mat-toolbar color="primary" class="fixed-header">
-    <mat-toolbar-row>
-      <span>
-        <mat-grid-list col="4" rowHeight="2:1" class="indent">
-          <button mat-button>ID DICTIONARY</button>
-          <button mat-button>BLOCKING</button>
-          <button mat-button>SYNONYM DB</button>
-          <button mat-button routerLink="types">TYPES</button>
-        </mat-grid-list>
-      </span>
-    </mat-toolbar-row>
-  </mat-toolbar>
+  <mat-toolbar color="primary" class="rosetta-header">Rosetta Configurator</mat-toolbar>
 
   <button mat-button class="top-left" (click)="sidenav.toggle()">
     <mat-icon>whatshot</mat-icon>

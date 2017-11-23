@@ -1,9 +1,11 @@
+<mat-toolbar color="primary" class="rosetta-header">
+  Home
+</mat-toolbar>
+
 <div style="text-align:center" >
-
-    <mat-toolbar class="mat-expansion-panel-title">
-      My Projects
-    </mat-toolbar>
-
+  <mat-toolbar class="mat-expansion-panel-title">
+    My Projects
+  </mat-toolbar>
 </div>
 <div >
   <mat-expansion-panel *ngFor="let project of rosettaProjectList">
@@ -36,13 +38,13 @@
       
 </div>
 <div class = "folder">
-    <mat-form-field>
-    <input matInput placeholder="Project" #projectName />
-    </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Project" #projectName [(ngModel)]="addProject"/>
+  </mat-form-field>
     
-    <button mat-button>
+  <button mat-button (click)="AddProject(addProject)">
       Add
-    </button>
+  </button>
     
 </div>
 
