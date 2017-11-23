@@ -20,6 +20,5 @@ export class DistanceFunctionComponent implements OnInit {
     this._rosettaService.distanceFunction(functionName, stringA, stringB).subscribe(data => {
       this.output = data;
     });
-    console.log(this.functionChosen.name);
   }
 }

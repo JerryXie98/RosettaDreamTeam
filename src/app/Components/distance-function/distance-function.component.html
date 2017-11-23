@@ -9,9 +9,9 @@
   </mat-form-field>
 </div>
 <div class="section">
-  <button mat-raised-button="" color="primary" (click)="runDistanceFunction(functionChosen.name, stringA, stringB)">Test Function</button>
+  <button mat-raised-button="" color="primary" (click)="runDistanceFunction(functionChosen.name, stringA, stringB)">Check Proximity</button>
 </div>
 <div class="section">
-  <p mat-line>{{output}}</p>
+  <p mat-line>{{output | percent: '2.16' }}</p>
 </div>
 
