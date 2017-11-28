@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { IRosettaConfig } from '../Data Models/irosetta-config';
+import { IRosettaConfig } from '../Models/irosetta-config';
 
 interface Config {
   [key: string]: any;

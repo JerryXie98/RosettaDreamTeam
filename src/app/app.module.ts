@@ -5,6 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 
+import { StoreModule } from '@ngrx/store';
+import { testReduce } from './Reducers/message.reducer';
+
+
 import { MatButtonModule,
          MatListModule,
          MatMenuModule,
@@ -26,6 +30,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { DistanceFunctionComponent } from './Components/distance-function/distance-function.component';
 import { ProgressComponent } from './Components/progress-bar/progress.component';
 import { SettingsComponent } from './Components/settings/settings.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { peopleReduce } from './Reducers/people.reducer';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -52,9 +58,14 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes,
-    
       // { enableTracing: true } // for debugging purposes
     ),
+    StoreModule.forRoot({
+      people: peopleReduce,
+      message: testReduce}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 10
+    }),
     MatButtonModule,
     MatListModule,
     MatMenuModule,

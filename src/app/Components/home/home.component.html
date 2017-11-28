@@ -9,12 +9,12 @@
 </div>
 <div >
   <mat-expansion-panel *ngFor="let project of rosettaProjectList">
-      <mat-expansion-panel-header class="mat-expansion-panel-header"> 
+      <mat-expansion-panel-header class="mat-expansion-panel-header">
         <mat-icon mat-list-icon class="folder">folder</mat-icon>
         <mat-panel-title class="project-title">
-          {{project}} 
+          {{project}}
         </mat-panel-title>
-          
+
         <button mat-icon-button [matMenuTriggerFor]="menu" class="panel-menu">
             <mat-icon>more_vert</mat-icon>
         </button>
@@ -34,18 +34,18 @@
       <button mat-button routerLink="../progress-bar" class="goto-progress-bar-button">Progress Bar</button>
 
   </mat-expansion-panel>
-     
-      
+
+
 </div>
 <div class = "folder">
   <mat-form-field>
     <input matInput placeholder="Project" #projectName [(ngModel)]="addProject"/>
   </mat-form-field>
-    
+
   <button mat-button (click)="AddProject(addProject)">
       Add
   </button>
-    
+
 </div>
 
 
@@ -75,3 +75,7 @@
   <button mat-menu-item> Encorder </button>
   <button mat-menu-item> Standardizer </button>
 </mat-menu>
+
+<h2>{{ person.name | async}}</h2>
+<h2>{{ person.company | async }}</h2>
+<h2>test</h2>

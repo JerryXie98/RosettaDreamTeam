@@ -1,6 +1,11 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { IRosettaFunctions } from '../../Data Models/irosetta-functions';
+import { IRosettaFunctions } from '../../Models/irosetta-functions';
 import { RosettaService } from '../../Services/rosetta.service';
+import { ConfigService } from '../../Services/config.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { IPeople } from '../../Models/ipeople';
+import * as PeopleActions from '../../Actions/people';
 
 @Component({
   selector: 'app-types',
@@ -21,5 +26,4 @@ export class TypesComponent implements OnInit {
 
     console.log('Types loaded!');
   }
-
 }

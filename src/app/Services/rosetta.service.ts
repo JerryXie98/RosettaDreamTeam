@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IRosettaFunctions } from '../Data Models/irosetta-functions';
+import { IRosettaFunctions } from '../Models/irosetta-functions';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 

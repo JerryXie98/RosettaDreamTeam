@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { IRosettaFunctions } from '../../Data Models/irosetta-functions';
+import { IRosettaFunctions } from '../../Models/irosetta-functions';
 import { RosettaService } from '../../Services/rosetta.service';
 import { MatCardModule } from '@angular/material';
 import { ConfigService } from '../../Services/config.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/Observable';
+import { IPeople } from '../../Models/ipeople';
+import { AppState } from '../../State/config-state';
+import * as PeopleActions from '../../Actions/people';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +22,13 @@ export class HomeComponent implements OnInit {
     'EDU to AESD',
     'Second Carrier'
   ];
+  person: Observable<IPeople>;
 
-  constructor(private _rosettaService: RosettaService, private _configService: ConfigService) {}
+  constructor(private _rosettaService: RosettaService,
+              private _configService: ConfigService,
+              private store: Store<AppState>) {
+    this.person = this.store.select('person');
+  }
   ngOnInit() {
     console.log('Home is loaded!');
   }
@@ -32,11 +42,13 @@ export class HomeComponent implements OnInit {
         console.log(data);
       }
     );
+    this.store.dispatch(new PeopleActions.EditCompany('Ikea'));
   }
 
   FunctionClick() {
      this._rosettaService.getFunctionsList().subscribe(data => {
        this.rosettaFunctionList = data['functions'];
      });
+     this.store.dispatch(new PeopleActions.EditName('Joe Cool'));
   }
 }

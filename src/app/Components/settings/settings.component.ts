@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IRosettaFunctions } from '../../Data Models/irosetta-functions';
+import { IRosettaFunctions } from '../../Models/irosetta-functions';
 import { RosettaService } from '../../Services/rosetta.service';
 import { MatCardModule } from '@angular/material';
 import { ConfigService } from '../../Services/config.service';
