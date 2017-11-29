@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IRosettaFunctions } from '../../Models/irosetta-functions';
 import { RosettaService } from '../../Services/rosetta.service';
-import { MatCardModule } from '@angular/material';
 import { ConfigService } from '../../Services/config.service';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
@@ -22,12 +21,13 @@ export class HomeComponent implements OnInit {
     'EDU to AESD',
     'Second Carrier'
   ];
-  person: Observable<IPeople>;
+  person$: Observable<IPeople>;
+  output: string;
 
   constructor(private _rosettaService: RosettaService,
               private _configService: ConfigService,
               private store: Store<AppState>) {
-    this.person = this.store.select('person');
+    this.person$ = this.store.select('people');
   }
   ngOnInit() {
     console.log('Home is loaded!');
@@ -50,5 +50,6 @@ export class HomeComponent implements OnInit {
        this.rosettaFunctionList = data['functions'];
      });
      this.store.dispatch(new PeopleActions.EditName('Joe Cool'));
+     this.person$.subscribe(val => this.output = val.name);
   }
 }
