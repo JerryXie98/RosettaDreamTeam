@@ -13,6 +13,8 @@ export class ProgressComponent implements OnInit {
   thirdFormGroup: FormGroup;
   forthFormGroup: FormGroup;
   fifthFormGroup: FormGroup;
+  sixthFormGroup: FormGroup;
+  seventhFormGroup: FormGroup;
 
   constructor(private _formBuilder: FormBuilder) { }
 
@@ -31,6 +33,12 @@ export class ProgressComponent implements OnInit {
     });
     this.fifthFormGroup = this._formBuilder.group({
       fifthCtrl: ['', Validators.required]
+    });
+    this.sixthFormGroup = this._formBuilder.group({
+      sixthCtrl: ['', Validators.required]
+    });
+    this.seventhFormGroup = this._formBuilder.group({
+      seventhCtrl: ['', Validators.required]
     });
     console.log('Progress Page is loaded!');
   }
