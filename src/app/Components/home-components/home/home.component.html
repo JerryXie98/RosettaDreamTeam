@@ -1,6 +1,4 @@
-<mat-toolbar color="primary" class="rosetta-header">
-  Home
-</mat-toolbar>
+<app-homeToolbar></app-homeToolbar>
 
 <div style="text-align:center" >
   <mat-toolbar class="mat-expansion-panel-title">
@@ -9,29 +7,29 @@
 </div>
 <div >
   <mat-expansion-panel *ngFor="let project of rosettaProjectList">
-      <mat-expansion-panel-header class="mat-expansion-panel-header">
-        <mat-icon mat-list-icon class="folder">folder</mat-icon>
-        <mat-panel-title class="project-title">
-          {{project}}
-        </mat-panel-title>
+    <mat-expansion-panel-header class="mat-expansion-panel-header">
+      <mat-icon mat-list-icon class="folder">folder</mat-icon>
+      <mat-panel-title class="project-title">
+        {{project}}
+      </mat-panel-title>
 
-        <button mat-icon-button [matMenuTriggerFor]="menu" class="panel-menu">
-            <mat-icon>more_vert</mat-icon>
+      <button mat-icon-button [matMenuTriggerFor]="menu" class="panel-menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <span>Share</span>
         </button>
-          <mat-menu #menu="matMenu">
-              <button mat-menu-item>
-               <span>Share</span>
-              </button>
-              <button mat-menu-item>
-                <span>Rename</span>
-              </button>
-              <button mat-menu-item disabled>
-                <span>Delete</span>
-              </button>
-            </mat-menu>
-        </mat-expansion-panel-header>
+        <button mat-menu-item>
+          <span>Rename</span>
+        </button>
+        <button mat-menu-item disabled>
+          <span>Delete</span>
+        </button>
+      </mat-menu>
+    </mat-expansion-panel-header>
 
-      <button mat-button routerLink="../progress-bar" class="goto-progress-bar-button">Progress Bar</button>
+    <button mat-button routerLink="../progress-bar" class="goto-progress-bar-button">Progress Bar</button>
 
   </mat-expansion-panel>
 
@@ -43,7 +41,7 @@
   </mat-form-field>
 
   <button mat-button (click)="AddProject(addProject)">
-      Add
+    Add
   </button>
 
 </div>
@@ -75,8 +73,3 @@
   <button mat-menu-item> Encorder </button>
   <button mat-menu-item> Standardizer </button>
 </mat-menu>
-
-<h2>{{ person$ | async}}</h2>
-<h2>{{ person$ | async }}</h2>
-<h2>{{ output }}</h2>
-<h2>test</h2>

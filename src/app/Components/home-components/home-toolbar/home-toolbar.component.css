@@ -1,0 +1,19 @@
+.top-left {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.top-indent {
+  margin-top: 30px;
+  margin-left: 25px;
+}
+
+.indent {
+  margin-left: 50px;
+}
+
+
+.rosetta-header{
+  margin: auto;
+}

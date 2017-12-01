@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { IRosettaFunctions } from '../../Models/irosetta-functions';
-import { RosettaService } from '../../Services/rosetta.service';
-import { ConfigService } from '../../Services/config.service';
-import { Store } from '@ngrx/store';
+import { IRosettaFunctions } from '../../../Models/irosetta-functions';
+import { RosettaService } from '../../../Services/rosetta.service';
+import { IPeople } from '../../../Models/ipeople';
 import { Observable } from 'rxjs/Observable';
-import { IPeople } from '../../Models/ipeople';
-import { AppState } from '../../State/config-state';
-import * as PeopleActions from '../../Actions/people';
+import { ConfigService } from '../../../Services/config.service';
+import { AppState } from '../../../State/config-state';
+import { Store } from '@ngrx/store';
+import * as PeopleActions from '../../../Actions/people';
 
 @Component({
   selector: 'app-home',
@@ -46,10 +46,10 @@ export class HomeComponent implements OnInit {
   }
 
   FunctionClick() {
-     this._rosettaService.getFunctionsList().subscribe(data => {
-       this.rosettaFunctionList = data['functions'];
-     });
-     this.store.dispatch(new PeopleActions.EditName('Joe Cool'));
-     this.person$.subscribe(val => this.output = val.name);
+    this._rosettaService.getFunctionsList().subscribe(data => {
+      this.rosettaFunctionList = data['functions'];
+    });
+    this.store.dispatch(new PeopleActions.EditName('Joe Cool'));
+    this.person$.subscribe(val => console.log(val.name));
   }
 }

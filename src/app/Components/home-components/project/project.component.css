@@ -1,0 +1,17 @@
+.background{
+  margin: auto;
+  width: 55%;
+}
+
+.backButton {
+  text-align: left;
+}
+
+.nextButton {
+  margin-right: 5%;
+}
+
+.center {
+  text-align: center;
+}
+

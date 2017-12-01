@@ -8,7 +8,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { testReduce } from './Reducers/message.reducer';
 
-
 import { MatButtonModule,
          MatListModule,
          MatMenuModule,
@@ -19,26 +18,35 @@ import { MatButtonModule,
          MatInputModule,
          MatCardModule,
          MatStepperModule,
+         MatDatepickerModule,
+         MatFormFieldModule,
          MatExpansionModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { ContactService } from './Services/contact.service';
 import { RosettaService } from './Services/rosetta.service';
 import { ConfigService} from './Services/config.service';
-import { TypesComponent } from './Components/types/types.component';
-import { HomeComponent } from './Components/home/home.component';
-import { DistanceFunctionComponent } from './Components/distance-function/distance-function.component';
-import { ProgressComponent } from './Components/progress-bar/progress.component';
-import { SettingsComponent } from './Components/settings/settings.component';
+import { TypesComponent } from './Components/settings-components/types/types.component';
+import { HomeComponent } from './Components/home-components/home/home.component';
+import { HomeToolbarComponent } from './Components/home-components/home-toolbar/home-toolbar.component';
+import { DistanceFunctionComponent } from './Components/shared/distance-function/distance-function.component';
+import { ProgressComponent } from './Components/shared/progress-bar/progress.component';
+import { SettingsComponent } from './Components/settings-components/settings/settings.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { peopleReduce } from './Reducers/people.reducer';
+import { configReduce } from './Reducers/config.reducer';
+import { ProjectComponent } from './Components/home-components/project/project.component';
+import { DataSourcesComponent } from './Components/home-components/data-sources/data-sources.component';
+import { ColumnMappingComponent } from './Components/home-components/column-mapping/column-mapping.component';
+import { StandardizationComponent } from './Components/home-components/standardization/standardization.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'types', component: TypesComponent},
   { path: 'home', component: HomeComponent },
   { path: 'progress-bar', component: ProgressComponent },
-  { path: 'settings', component: SettingsComponent }
+  { path: 'settings', component: SettingsComponent },
+  { path: 'project', component: ProjectComponent },
+  { path: 'data-sources', component: DataSourcesComponent }
 ];
 
 @NgModule({
@@ -46,9 +54,14 @@ const appRoutes: Routes = [
     AppComponent,
     TypesComponent,
     HomeComponent,
+    HomeToolbarComponent,
     DistanceFunctionComponent,
     ProgressComponent,
-    SettingsComponent
+    SettingsComponent,
+    ProjectComponent,
+    DataSourcesComponent,
+    ColumnMappingComponent,
+    StandardizationComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +75,7 @@ const appRoutes: Routes = [
     ),
     StoreModule.forRoot({
       people: peopleReduce,
-      message: testReduce}),
+      config: configReduce}),
     StoreDevtoolsModule.instrument({
       maxAge: 10
     }),
@@ -76,9 +89,11 @@ const appRoutes: Routes = [
     MatInputModule,
     MatCardModule,
     MatStepperModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
     MatExpansionModule
   ],
-  providers: [ ContactService, RosettaService, ConfigService ],
+  providers: [ RosettaService, ConfigService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

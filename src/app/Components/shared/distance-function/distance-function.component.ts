@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RosettaService} from '../../Services/rosetta.service';
+import {RosettaService} from '../../../Services/rosetta.service';
 
 @Component({
   selector: 'app-distance-function',
