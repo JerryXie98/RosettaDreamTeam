@@ -77,7 +77,7 @@ export interface Blocking {
       FieldStore: string;
     }
     export interface BlockingComponentOptions {
-      MaxDistanceKm: number;
+      [key: string]: any;
     }
 
 export interface DataStore {
@@ -112,7 +112,7 @@ export interface Matching {
         Options: DistanceFunctionOptions;
       }
         export interface DistanceFunctionOptions {
-          MaxDistanceKm: number;
+          [key: string]: any;
         }
 
 export interface MidProvider {

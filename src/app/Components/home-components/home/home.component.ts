@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { IRosettaFunctions } from '../../Models/irosetta-functions';
-import { RosettaService } from '../../Services/rosetta.service';
-import { ConfigService } from '../../Services/config.service';
+import { IRosettaFunctions } from '../../../Models/irosetta-functions';
+import { RosettaService } from '../../../Services/rosetta.service';
+import { ConfigService } from '../../../Services/config.service';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
-import { IPeople } from '../../Models/ipeople';
-import { AppState } from '../../State/config-state';
-import * as PeopleActions from '../../Actions/people';
+import { IPeople } from '../../../Models/ipeople';
+import { AppState } from '../../../State/config-state';
+import * as PeopleActions from '../../../Actions/people';
 
 @Component({
   selector: 'app-home',
@@ -50,6 +50,6 @@ export class HomeComponent implements OnInit {
        this.rosettaFunctionList = data['functions'];
      });
      this.store.dispatch(new PeopleActions.EditName('Joe Cool'));
-     this.person$.subscribe(val => this.output = val.name);
+     this.person$.subscribe(val => console.log(val.name));
   }
 }
