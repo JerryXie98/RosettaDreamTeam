@@ -51,7 +51,7 @@ export function configReduce(state: IRosettaConfig = defaultConfig, action: Acti
     case ConfigActions.EDIT_OPTIONS:
       return newState(state, { Options: { NumberMapper : action.payload }} );
     case ConfigActions.EDIT_DATASTORES:
-      return newState(state, { DataStores: { Id: 'test', Type: 'test', Options: { StorageProviderType: action.payload} }});
+      return newState(state, { DataStore: { Id: 'test', Type: 'test', Options: { StorageProviderType: action.payload} }});
     default:
       return state;
   }

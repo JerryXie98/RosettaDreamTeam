@@ -20,6 +20,7 @@ import { MatButtonModule,
          MatStepperModule,
          MatDatepickerModule,
          MatFormFieldModule,
+         MatTabsModule,
          MatExpansionModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -27,7 +28,7 @@ import { RosettaService } from './Services/rosetta.service';
 import { ConfigService} from './Services/config.service';
 import { TypesComponent } from './Components/settings-components/types/types.component';
 import { HomeComponent } from './Components/home-components/home/home.component';
-import { HomeToolbarComponent } from './Components/home-components/home-toolbar/home-toolbar.component';
+import { HomeToolbarComponent } from './Components/shared/home-toolbar/home-toolbar.component';
 import { DistanceFunctionComponent } from './Components/shared/distance-function/distance-function.component';
 import { ProgressComponent } from './Components/shared/progress-bar/progress.component';
 import { SettingsComponent } from './Components/settings-components/settings/settings.component';
@@ -38,6 +39,9 @@ import { ProjectComponent } from './Components/home-components/project/project.c
 import { DataSourcesComponent } from './Components/home-components/data-sources/data-sources.component';
 import { ColumnMappingComponent } from './Components/home-components/column-mapping/column-mapping.component';
 import { StandardizationComponent } from './Components/home-components/standardization/standardization.component';
+import { BlockingComponent } from './Components/home-components/blocking/blocking.component';
+import { MatchingComponent } from './Components/home-components/matching/matching.component';
+import { ExecutionComponent } from './Components/home-components/execution/execution.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -46,7 +50,8 @@ const appRoutes: Routes = [
   { path: 'progress-bar', component: ProgressComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'project', component: ProjectComponent },
-  { path: 'data-sources', component: DataSourcesComponent }
+  { path: 'data-sources', component: DataSourcesComponent },
+  { path: 'home-toolbar', component: HomeToolbarComponent }
 ];
 
 @NgModule({
@@ -61,7 +66,10 @@ const appRoutes: Routes = [
     ProjectComponent,
     DataSourcesComponent,
     ColumnMappingComponent,
-    StandardizationComponent
+    StandardizationComponent,
+    BlockingComponent,
+    MatchingComponent,
+    ExecutionComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +99,7 @@ const appRoutes: Routes = [
     MatStepperModule,
     MatDatepickerModule,
     MatFormFieldModule,
+    MatTabsModule,
     MatExpansionModule
   ],
   providers: [ RosettaService, ConfigService ],
