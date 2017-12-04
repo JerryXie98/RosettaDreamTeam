@@ -30,7 +30,6 @@ import { TypesComponent } from './Components/settings-components/types/types.com
 import { HomeComponent } from './Components/home-components/home/home.component';
 import { HomeToolbarComponent } from './Components/shared/home-toolbar/home-toolbar.component';
 import { DistanceFunctionComponent } from './Components/shared/distance-function/distance-function.component';
-import { ProgressComponent } from './Components/shared/progress-bar/progress.component';
 import { SettingsComponent } from './Components/settings-components/settings/settings.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { peopleReduce } from './Reducers/people.reducer';
@@ -47,7 +46,6 @@ const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'types', component: TypesComponent},
   { path: 'home', component: HomeComponent },
-  { path: 'progress-bar', component: ProgressComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'project', component: ProjectComponent },
   { path: 'data-sources', component: DataSourcesComponent },
@@ -61,7 +59,6 @@ const appRoutes: Routes = [
     HomeComponent,
     HomeToolbarComponent,
     DistanceFunctionComponent,
-    ProgressComponent,
     SettingsComponent,
     ProjectComponent,
     DataSourcesComponent,

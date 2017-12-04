@@ -1,4 +1,60 @@
+<mat-toolbar>
+    <span>
+        Connect your project to data sources
+    </span>
 
+    <span class="reload-button-right-align"></span>
+    <button mat-raised-button color="primary" class="reload-button">Reload Columns</button>
+</mat-toolbar>
+
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{dataSourceTitle}}
+        </mat-panel-title>
+        <mat-panel-description>
+            Type your name and age
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="align">
+        <mat-form-field>
+            <input matInput placeholder="Title" [(ngModel)]="dataSourceTitle">
+        </mat-form-field>
+    </div>
+    <div class="align">
+        <mat-form-field>
+            <mat-select placeholder="Connection Provider">
+                <mat-option *ngFor="let connectionProvider of connectionProviders" [value]="connectionProvider.value" >
+                    {{ connectionProvider.viewValue }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <form class="connection-string-form">
+            <mat-form-field class="full-width">
+                <input matInput placeholder="Connection String" [(ngModel)]="connectionString">
+            </mat-form-field>
+        </form>
+    </div>
+    <div class="align">
+        <mat-form-field>
+            <input matInput placeholder="Batch Size" [(ngModel)]="batchSize">
+        </mat-form-field>
+    </div>
+    <div class="align">
+        <mat-form-field>
+            <mat-select [(ngModel)]="lidDomainChosen" placeholder="LID Domain" label="value">
+                <mat-option *ngFor="let lidDomain of lidDomainList" [value]="lidDomain">
+                    {{ lidDomain.value }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="AddLidDomain(lidDomain.value)">
+            Add LID Domain
+        </button>
+    </div>
+</mat-expansion-panel>
 
 <button mat-raised-button (click)="optionChange()" >Change Options!</button>
 <button mat-raised-button (click)="datastoreChange()" >Change Datastores!</button>

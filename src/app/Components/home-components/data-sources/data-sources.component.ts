@@ -12,6 +12,14 @@ import * as ConfigActions from '../../../Actions/config.actions';
 })
 export class DataSourcesComponent implements OnInit {
   tempOutput: string;
+  dataSourceTitle = "Data Source Title";
+  lidDomainList = ["select"];
+
+  connectionProviders = [
+    {value: 'SQL-0', viewValue: 'SQL Server'},
+    {value: 'Oracle-1', viewValue: 'Oracle'},
+    {value: 'CSV-2', viewValue: 'CSV'}
+  ];
 
   config$: Observable<IRosettaConfig>;
 
@@ -28,6 +36,10 @@ export class DataSourcesComponent implements OnInit {
 
   datastoreChange() {
     this._store.dispatch(new ConfigActions.EditDataStores('bleh'));
+  }
+
+  AddLidDomain(addLidDomain: string) {
+    this.lidDomainList.push(addLidDomain);
   }
 
 }
