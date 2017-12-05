@@ -13,17 +13,24 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class DataSourcesComponent implements OnInit {
   tempOutput: string;
-  dataSourceTitle = "Data Source Title";
+  dataSourceList =[
+    //this.dataSourceTitle
+    'Data Source Title'
+  ];
+  colors = [
+    {value: 'red', viewValue: 'Red'},
+    {value: 'blue', viewValue: 'Blue'},
+    {value: 'green', viewValue: 'Green'}
+  ];
   lidDomainList = [
     {value: 'select', viewValue: 'Select'}
   ];
-  
   lidDomainChosen: string;
 
   connectionProviders = [
-    {value: 'SQL-0', viewValue: 'SQL Server'},
-    {value: 'Oracle-1', viewValue: 'Oracle'},
-    {value: 'CSV-2', viewValue: 'CSV'}
+    {value: 'SQL Server', viewValue: 'SQL Server'},
+    {value: 'Oracle', viewValue: 'Oracle'},
+    {value: 'CSV', viewValue: 'CSV'}
   ];
 
   config$: Observable<IRosettaConfig>;
@@ -44,7 +51,9 @@ export class DataSourcesComponent implements OnInit {
     this._store.dispatch(new ConfigActions.EditDataStores('bleh'));
   }
 
-  
+  AddDataSource(addDataSource: string){
+    this.dataSourceList.push(addDataSource)
+  }
 
   openDialog(): void {
     let dialogRef = this.dialog.open(LidDomainDialog, {
