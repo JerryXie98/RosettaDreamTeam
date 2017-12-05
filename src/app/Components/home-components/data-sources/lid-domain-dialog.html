@@ -1,0 +1,25 @@
+<div >
+    <mat-form-field class="layout" >
+        <input matInput placeholder="LID Domain Name" [(ngModel)]="newLidDomainName">
+    </mat-form-field>
+</div>
+<div >
+    <mat-form-field class="layout" >
+        <input matInput placeholder="LID Key" [(ngModel)]="newLidKey">
+    </mat-form-field>
+</div>
+<div color = "primary">
+    <mat-form-field class="layout">
+        <mat-select [(ngModel)]="providerChosen" placeholder="Provider"  > 
+            <mat-option *ngFor="let provider of providerList" [value]="provider.value">
+                {{ provider.viewValue }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<mat-dialog-actions>
+    <button mat-raised-button color="primary" (click)="AddLidDomain(newLidDomainName)">
+        Apply
+    </button>
+</mat-dialog-actions>

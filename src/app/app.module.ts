@@ -21,6 +21,7 @@ import { MatButtonModule,
          MatDatepickerModule,
          MatFormFieldModule,
          MatTabsModule,
+         MatDialogModule,
          MatExpansionModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -36,6 +37,7 @@ import { peopleReduce } from './Reducers/people.reducer';
 import { configReduce } from './Reducers/config.reducer';
 import { ProjectComponent } from './Components/home-components/project/project.component';
 import { DataSourcesComponent } from './Components/home-components/data-sources/data-sources.component';
+import { LidDomainDialog } from './Components/home-components/data-sources/data-sources.component';
 import { ColumnMappingComponent } from './Components/home-components/column-mapping/column-mapping.component';
 import { StandardizationComponent } from './Components/home-components/standardization/standardization.component';
 import { BlockingComponent } from './Components/home-components/blocking/blocking.component';
@@ -62,6 +64,7 @@ const appRoutes: Routes = [
     SettingsComponent,
     ProjectComponent,
     DataSourcesComponent,
+    LidDomainDialog,
     ColumnMappingComponent,
     StandardizationComponent,
     BlockingComponent,
@@ -97,9 +100,14 @@ const appRoutes: Routes = [
     MatDatepickerModule,
     MatFormFieldModule,
     MatTabsModule,
+    MatDialogModule,
     MatExpansionModule
   ],
   providers: [ RosettaService, ConfigService ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+
+  entryComponents: [
+    LidDomainDialog
+  ]
 })
 export class AppModule { }

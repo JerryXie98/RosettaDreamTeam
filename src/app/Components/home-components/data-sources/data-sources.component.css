@@ -19,3 +19,8 @@
 .full-width{
     width: 100%;
 }
+
+.layout {
+   width: 50%;
+    color: rgb(54, 54, 233);
+}

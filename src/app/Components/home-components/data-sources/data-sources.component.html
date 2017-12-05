@@ -33,7 +33,7 @@
     <div>
         <form class="connection-string-form">
             <mat-form-field class="full-width">
-                <input matInput placeholder="Connection String" [(ngModel)]="connectionString">
+                <input matInput placeholder="Connection String" [(ngModel)]="connectionString" [ngModelOptions]="{standalone: true}">
             </mat-form-field>
         </form>
     </div>
@@ -44,13 +44,14 @@
     </div>
     <div class="align">
         <mat-form-field>
-            <mat-select [(ngModel)]="lidDomainChosen" placeholder="LID Domain" label="value">
-                <mat-option *ngFor="let lidDomain of lidDomainList" [value]="lidDomain">
-                    {{ lidDomain.value }}
+            <mat-select [(ngModel)]="lidDomainChosen" placeholder="LID Domain" label="value" > 
+                <mat-option *ngFor="let lidDomain of lidDomainList" [value]="lidDomain.value">
+                    {{ lidDomain.viewValue }}
                 </mat-option>
             </mat-select>
         </mat-form-field>
-        <button mat-raised-button color="primary" (click)="AddLidDomain(lidDomain.value)">
+
+        <button mat-raised-button color="primary" (click)="openDialog()">
             Add LID Domain
         </button>
     </div>
