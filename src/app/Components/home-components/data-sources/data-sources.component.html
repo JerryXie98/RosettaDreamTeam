@@ -44,7 +44,7 @@
     </div>
     <div class="align">
         <mat-form-field>
-            <mat-select [(ngModel)]="lidDomainChosen" placeholder="LID Domain" label="value" > 
+            <mat-select [(ngModel)]="lidDomainChosen" placeholder="LID Domain" label="value" >
                 <mat-option *ngFor="let lidDomain of lidDomainList" [value]="lidDomain.value">
                     {{ lidDomain.viewValue }}
                 </mat-option>
@@ -57,6 +57,5 @@
     </div>
 </mat-expansion-panel>
 
-<button mat-raised-button (click)="optionChange()" >Change Options!</button>
-<button mat-raised-button (click)="datastoreChange()" >Change Datastores!</button>
+<button mat-raised-button (click)="dummydiagnosticsSet()" >Set Diagnostics!</button>
 <p>{{ tempOutput }}</p>

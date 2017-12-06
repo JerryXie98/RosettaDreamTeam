@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import {AppState} from '../../../State/config-state';
 import { Store } from '@ngrx/store';
-import { IRosettaConfig } from '../../../Models/irosetta-config';
+import { IRosettaConfig, Diagnostics, Registration } from '../../../Models/irosetta-config';
 import { Observable } from 'rxjs/Observable';
 import * as ConfigActions from '../../../Actions/config.actions';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
@@ -13,8 +13,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 })
 export class DataSourcesComponent implements OnInit {
   tempOutput: string;
-  dataSourceList =[
-    //this.dataSourceTitle
+  dataSourceList = [
     'Data Source Title'
   ];
   colors = [
@@ -26,6 +25,12 @@ export class DataSourcesComponent implements OnInit {
     {value: 'select', viewValue: 'Select'}
   ];
   lidDomainChosen: string;
+  dummyDiagnostics: Diagnostics = {
+    Type: 'json',
+    Options: {
+      BatchSize: 50
+    }
+  };
 
   connectionProviders = [
     {value: 'SQL Server', viewValue: 'SQL Server'},
@@ -39,20 +44,15 @@ export class DataSourcesComponent implements OnInit {
     this._store.select('config');
 }
 
-
   ngOnInit() {
   }
 
-  optionChange() {
-    this._store.dispatch(new ConfigActions.EditOptions('test'));
+  AddDataSource(addDataSource: string) {
+    this.dataSourceList.push(addDataSource);
   }
 
-  datastoreChange() {
-    this._store.dispatch(new ConfigActions.EditDataStores('bleh'));
-  }
-
-  AddDataSource(addDataSource: string){
-    this.dataSourceList.push(addDataSource)
+  dummydiagnosticsSet() {
+    this._store.dispatch(new ConfigActions.EditDiagnostics(this.dummyDiagnostics));
   }
 
   openDialog(): void {
@@ -67,8 +67,8 @@ export class DataSourcesComponent implements OnInit {
       this.lidDomainChosen = result;
     });
   }
-
 }
+
 @Component({
   selector: 'lid-domain-dialog',
   templateUrl: './lid-domain-dialog.html',
@@ -90,7 +90,7 @@ export class LidDomainDialog {
     this.dialogRef.close();
   }
   AddLidDomain(addLidDomain: object) {
-    this.data.lidDomainList.push({value: addLidDomain, viewValue: addLidDomain})
+    this.data.lidDomainList.push({value: addLidDomain, viewValue: addLidDomain});
     this.dialogRef.close();
   }
 

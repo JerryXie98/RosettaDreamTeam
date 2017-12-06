@@ -49,9 +49,23 @@ export function configReduce(state: IRosettaConfig = defaultConfig, action: Acti
 
   switch (action.type) {
     case ConfigActions.EDIT_OPTIONS:
-      return newState(state, { Options: { NumberMapper : action.payload }} );
+      return newState(state, { Options: action.payload });
+    case ConfigActions.EDIT_REGISTRATIONS:
+      return newState(state, { Registrations: action.payload });
+    case ConfigActions.EDIT_STANDARDIZATIONS:
+      return newState(state, { Standardization: action.payload });
+    case ConfigActions.EDIT_BLOCKING:
+      return newState(state, { Blocking: action.payload });
     case ConfigActions.EDIT_DATASTORES:
-      return newState(state, { DataStore: { Id: 'test', Type: 'test', Options: { StorageProviderType: action.payload} }});
+      return newState(state, { DataStore: action.payload });
+    case ConfigActions.EDIT_MATCHING:
+      return newState(state, { Matching: action.payload });
+    case ConfigActions.EDIT_MIDPROVIDER:
+      return newState(state, { MidProvider: action.payload });
+    case ConfigActions.EDIT_LIDSTORAGEPROVIDER:
+      return newState(state, { LidStorageProviders: action.payload });
+    case ConfigActions.EDIT_DIAGNOSTICS:
+      return newState(state, {Diagnostics: action.payload });
     default:
       return state;
   }
