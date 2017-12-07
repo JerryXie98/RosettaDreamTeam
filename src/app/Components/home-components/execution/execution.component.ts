@@ -142,10 +142,5 @@ export class ExecutionComponent implements OnInit {
       console.log(data);
       this._configService.runConfig(data).subscribe(val => console.log(val));
     });
-    // this._configService.runConfig(this.testOutput).subscribe(data => {console.log(data); });
-    // this._configService.sendDummyConfig().subscribe(data => {
-    //     console.log(data);
-    //   }
-    // );
   }
 }

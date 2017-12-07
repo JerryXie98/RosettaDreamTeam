@@ -6,7 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';
-import { testReduce } from './Reducers/message.reducer';
 
 import { MatButtonModule,
          MatListModule,
@@ -33,7 +32,6 @@ import { HomeToolbarComponent } from './Components/shared/home-toolbar/home-tool
 import { DistanceFunctionComponent } from './Components/shared/distance-function/distance-function.component';
 import { SettingsComponent } from './Components/settings-components/settings/settings.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { peopleReduce } from './Reducers/people.reducer';
 import { configReduce } from './Reducers/config.reducer';
 import { ProjectComponent } from './Components/home-components/project/project.component';
 import { DataSourcesComponent } from './Components/home-components/data-sources/data-sources.component';
@@ -82,7 +80,6 @@ const appRoutes: Routes = [
       // { enableTracing: true } // for debugging purposes
     ),
     StoreModule.forRoot({
-      people: peopleReduce,
       config: configReduce}),
     StoreDevtoolsModule.instrument({
       maxAge: 10

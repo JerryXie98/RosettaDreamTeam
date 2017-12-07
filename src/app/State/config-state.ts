@@ -1,7 +1,7 @@
-import { IPeople } from '../Models/ipeople';
 import { IRosettaConfig } from '../Models/irosetta-config';
+import { ICustomConfig } from '../Models/custom-config';
 
 export interface AppState {
-  people: IPeople;
+  customConfig: ICustomConfig;
   config: IRosettaConfig;
 }

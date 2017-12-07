@@ -10,7 +10,6 @@ interface Config {
 export class ConfigService {
 
   POST_URL = 'http://localhost:61899/api/Main/';
-  result: any;
 
   constructor(private _http: HttpClient) { }
 
