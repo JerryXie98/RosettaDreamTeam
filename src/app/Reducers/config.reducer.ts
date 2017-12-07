@@ -1,7 +1,20 @@
 import {IRosettaConfig, Matching, Options, Registration, Standardization} from '../Models/irosetta-config';
 import * as ConfigActions from '../Actions/config.actions';
+import {ICustomConfig} from '../Models/custom-config';
 
 export type Action = ConfigActions.All;
+
+const customConfig: ICustomConfig = {
+  Options: {},
+  Registrations: [{}],
+  Standardization: {},
+  Blocking: {},
+  DataStores: [{}],
+  Matching: {},
+  MidProvider: {},
+  LidStorageProviders: [{}],
+  Diagnostics: {}
+}
 
 const defaultConfig: IRosettaConfig = {
   Options: { },
@@ -42,7 +55,7 @@ const newState = (state, newData) => {
   return Object.assign({}, state, newData);
 };
 
-export function configReduce(state: IRosettaConfig = defaultConfig, action: Action) {
+export function configReduce(state: ICustomConfig = customConfig, action: Action) {
   console.log(action.type, state);
 
   switch (action.type) {

@@ -3,7 +3,7 @@ import {
   Blocking,
   DataStore, Diagnostics, LidStorageProvider, Matching, MidProvider, Options, Registration,
   Standardization
-} from '../Models/irosetta-config';
+} from '../Models/custom-config';
 
 export const EDIT_OPTIONS = '[Config] Update Options';
 export const EDIT_REGISTRATIONS = '[Config] Update Registrations';

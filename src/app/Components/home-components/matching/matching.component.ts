@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppState } from '../../../State/config-state';
 import { Store } from '@ngrx/store';
-import {Matching} from '../../../Models/irosetta-config';
+import { Matching } from '../../../Models/irosetta-config';
+import * as ConfigActions from '../../../Actions/config.actions';
 
 @Component({
   selector: 'app-matching',
@@ -11,18 +12,32 @@ import {Matching} from '../../../Models/irosetta-config';
 })
 export class MatchingComponent implements OnInit {
 
-  MatchingOutput: Matching = {
-    RecordComparers: [{
-      Name: '',
-      FieldComparers: [{
-        Name: '',
-        Field: { FieldName: '', FieldStore: ''},
-        DistanceFunction: {
-          Name: ''
+  dummyMatching: Matching = {
+    RecordComparers: [
+      {
+        Name: 'FirstandLastNames',
+        FieldComparers: [
+          {
+            Name: 'first-name',
+            Field: {
+              FieldName: 'FirstName',
+              FieldStore: 'Rec'
+            },
+            DistanceFunction: { Name: 'JaroWinkler' },
+            Threshold: 0.95
           },
-        Threshold: -1
-      }]
-    }]
+          {
+            Name: 'last-name',
+            Field: {
+              FieldName: 'LastName',
+              FieldStore: 'Rec'
+            },
+            DistanceFunction: { Name: 'JaroWinkler' },
+            Threshold: 0.8
+          }
+        ]
+      }
+    ]
   };
 
   constructor(private _store: Store<AppState>) {
@@ -30,5 +45,9 @@ export class MatchingComponent implements OnInit {
   }
 
   ngOnInit() { }
+
+  dummyMatch() {
+    this._store.dispatch(new ConfigActions.EditMatching(this.dummyMatching));
+  }
 
 }
