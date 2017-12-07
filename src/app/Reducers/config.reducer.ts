@@ -12,14 +12,13 @@ const defaultConfig: IRosettaConfig = {
     ResultWriter: { Type: '', TargetColumnName: '', IncludeColumnTypes: '', Options: {Path: ''}}
   }],
   Standardization: {
-    SynonymDatabases: {dbString: ''},
-    FieldStandardizers: [{ Type: '', InputFields: [{FieldName: '', FieldStore: ''}], OutputField: ''}]
+    SynonymDatabases: {},
+    FieldStandardizers: []
   },
   Blocking: {
     BlockingKeys: [{
       Name: '',
-      Components: [{ Field: { FieldName: '', FieldStore: ''}, Encoding: '', Options: {}}],
-      KeysCreatedByEncoding: -1
+      Components: [{ Field: { FieldName: '', FieldStore: ''}, Encoding: '', Options: {}}]
     }],
   },
   DataStores: [{
@@ -30,8 +29,7 @@ const defaultConfig: IRosettaConfig = {
   Matching: {
     RecordComparers: [{
       Name: '',
-      DataStores: [''],
-      FieldComparers: [{ Name: '', Field: { FieldName: '', FieldStore: ''}, DistanceFunction: {Name: '', Options: {}}, Threshold: -1}],
+      FieldComparers: [{ Name: '', Field: { FieldName: '', FieldStore: ''}, DistanceFunction: {Name: ''}, Threshold: -1}],
     }]
   },
   MidProvider: { Type: '' },
@@ -57,7 +55,7 @@ export function configReduce(state: IRosettaConfig = defaultConfig, action: Acti
     case ConfigActions.EDIT_BLOCKING:
       return newState(state, { Blocking: action.payload });
     case ConfigActions.EDIT_DATASTORES:
-      return newState(state, { DataStore: action.payload });
+      return newState(state, { DataStores: action.payload });
     case ConfigActions.EDIT_MATCHING:
       return newState(state, { Matching: action.payload });
     case ConfigActions.EDIT_MIDPROVIDER:
@@ -65,7 +63,7 @@ export function configReduce(state: IRosettaConfig = defaultConfig, action: Acti
     case ConfigActions.EDIT_LIDSTORAGEPROVIDER:
       return newState(state, { LidStorageProviders: action.payload });
     case ConfigActions.EDIT_DIAGNOSTICS:
-      return newState(state, {Diagnostics: action.payload });
+      return newState(state, { Diagnostics: action.payload });
     default:
       return state;
   }

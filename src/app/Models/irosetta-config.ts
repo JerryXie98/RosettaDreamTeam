@@ -43,8 +43,7 @@ export interface Registration {
     }
 
 export interface Standardization {
-  SynonymDatabases: SynonymDatabases;
-  FieldStandardizers: FieldStandardizer[];
+  [key: string]: any;
 }
   export interface SynonymDatabases {
     dbString: string;
@@ -65,7 +64,6 @@ export interface Blocking {
   export interface BlockingKey {
     Name: string;
     Components: Component[];
-    KeysCreatedByEncoding: number;
   }
   export interface Component {
     Field: Field;
@@ -94,7 +92,6 @@ export interface Matching {
 }
   export interface RecordComparer {
     Name: string;
-    DataStores: string[];
     FieldComparers: FieldComparer[];
   }
     export interface FieldComparer {
@@ -109,7 +106,7 @@ export interface Matching {
       }
       export interface DistanceFunction {
         Name: string;
-        Options: DistanceFunctionOptions;
+        // Options: DistanceFunctionOptions;
       }
         export interface DistanceFunctionOptions {
           [key: string]: any;

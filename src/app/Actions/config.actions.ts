@@ -22,7 +22,7 @@ export class EditOptions implements Action {
 
 export class EditRegistrations implements Action {
   readonly type = EDIT_REGISTRATIONS;
-  constructor(public payload: Registration) {}
+  constructor(public payload: Registration[]) {}
 }
 
 export class EditStandardizations implements Action {
@@ -37,7 +37,7 @@ export class EditBlocking implements  Action {
 
 export class EditDataStores implements Action {
   readonly type = EDIT_DATASTORES;
-  constructor(public payload: DataStore) {}
+  constructor(public payload: DataStore[]) {}
 }
 
 export class EditMatching implements  Action {
@@ -52,7 +52,7 @@ export class EditMidProvider implements  Action {
 
 export class EditLidStorageProvider implements Action {
   readonly  type = EDIT_LIDSTORAGEPROVIDER;
-  constructor(public payload: LidStorageProvider) {}
+  constructor(public payload: LidStorageProvider[]) {}
 }
 
 export class EditDiagnostics implements Action {

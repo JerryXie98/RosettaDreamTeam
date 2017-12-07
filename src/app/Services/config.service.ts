@@ -130,6 +130,7 @@ export class ConfigService {
         }
       }
     };
+    console.log(config);
     return config;
   }
 }

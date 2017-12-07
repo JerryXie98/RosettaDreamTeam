@@ -42,14 +42,11 @@ export class HomeComponent implements OnInit {
         console.log(data);
       }
     );
-    this.store.dispatch(new PeopleActions.EditCompany('Ikea'));
   }
 
   FunctionClick() {
     this._rosettaService.getFunctionsList().subscribe(data => {
       this.rosettaFunctionList = data['functions'];
     });
-    this.store.dispatch(new PeopleActions.EditName('Joe Cool'));
-    this.person$.subscribe(val => console.log(val.name));
   }
 }

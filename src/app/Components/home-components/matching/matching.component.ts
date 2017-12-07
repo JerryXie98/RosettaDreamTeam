@@ -14,13 +14,11 @@ export class MatchingComponent implements OnInit {
   MatchingOutput: Matching = {
     RecordComparers: [{
       Name: '',
-      DataStores: [''],
       FieldComparers: [{
         Name: '',
         Field: { FieldName: '', FieldStore: ''},
         DistanceFunction: {
-          Name: '',
-          Options: {}
+          Name: ''
           },
         Threshold: -1
       }]

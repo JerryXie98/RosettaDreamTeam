@@ -19,7 +19,7 @@ export class ExecutionComponent implements OnInit {
   ConfigTemplate$: Observable<IRosettaConfig>;
   testOutput: any;
 
-  dummyRegistrations: Registration = {
+  dummyRegistrations: Registration[] = [{
     DataStore: 'test',
     LidDomainId: 'standalone',
     RecordReader: {
@@ -28,6 +28,7 @@ export class ExecutionComponent implements OnInit {
         fname: 'FirstName',
         lname: 'LastName',
         by: 'BirthYear',
+        bm: 'BirthMonth',
         bd: 'BirthDay'
       },
       BatchSize: 2400,
@@ -43,7 +44,7 @@ export class ExecutionComponent implements OnInit {
         Path: 'C:\\Dev\\TestConfig\\output.csv'
       }
     }
-  };
+  }];
 
   dummyBlocking: Blocking = {
     BlockingKeys: [{
@@ -60,24 +61,22 @@ export class ExecutionComponent implements OnInit {
             length: '2'
           }
         }
-      ],
-      KeysCreatedByEncoding: 10
+      ]
     }]
   };
 
-  dummyDataStores: DataStore = {
+  dummyDataStores: DataStore[] = [{
     Id: 'test',
     Type: 'Rosetta.Link.Core.LinkDataStoreInProcess',
     Options: {
       StorageProviderType: 'Rosetta.Link.Core.LinkStorageProviderDummy'
     }
-  };
+  }];
 
   dummyMatching: Matching = {
     RecordComparers: [
       {
         Name: 'FirstandLastNames',
-        DataStores: [''],
         FieldComparers: [
           {
             Name: 'first-name',
@@ -85,7 +84,7 @@ export class ExecutionComponent implements OnInit {
               FieldName: 'FirstName',
               FieldStore: 'Rec'
             },
-            DistanceFunction: { Name: 'JaroWinkler', Options: {}},
+            DistanceFunction: { Name: 'JaroWinkler' },
             Threshold: 0.95
           },
           {
@@ -94,7 +93,7 @@ export class ExecutionComponent implements OnInit {
               FieldName: 'LastName',
               FieldStore: 'Rec'
             },
-            DistanceFunction: { Name: 'JaroWinkler', Options: {}},
+            DistanceFunction: { Name: 'JaroWinkler' },
             Threshold: 0.8
           }
         ]
@@ -106,13 +105,13 @@ export class ExecutionComponent implements OnInit {
     Type: 'Rosetta.Link.Core.LinkMidProviderInMemory'
   };
 
-  dummyLidStorageProvider: LidStorageProvider = {
+  dummyLidStorageProvider: LidStorageProvider[] = [{
       Id: 'RosettaStandalone',
       LidDomainIds: [
         'standalone'
       ],
       Type: 'Rosetta.Link.Core.LinkLidStorageProviderDummy'
-  };
+  }];
 
   dummyDiagnostics: Diagnostics = {
     Type: 'json',
@@ -135,13 +134,14 @@ export class ExecutionComponent implements OnInit {
     this._store.dispatch(new ConfigActions.EditMatching(this.dummyMatching));
     this._store.dispatch(new ConfigActions.EditMidProvider(this.dummyMidProvider));
     this._store.dispatch(new ConfigActions.EditLidStorageProvider(this.dummyLidStorageProvider));
+    this._store.dispatch(new ConfigActions.EditDiagnostics(this.dummyDiagnostics));
   }
 
   dummyExecute() {
     this.ConfigTemplate$.subscribe(data => {
+      console.log(data);
       this._configService.runConfig(data).subscribe(val => console.log(val));
     });
-    console.log('wtf');
     // this._configService.runConfig(this.testOutput).subscribe(data => {console.log(data); });
     // this._configService.sendDummyConfig().subscribe(data => {
     //     console.log(data);
