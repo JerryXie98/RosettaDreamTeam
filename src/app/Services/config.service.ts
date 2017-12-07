@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { IRosettaConfig } from '../Models/irosetta-config';
 
 interface Config {
@@ -16,6 +16,10 @@ export class ConfigService {
 
   sendDummyConfig() {
     return this._http.post(this.POST_URL, this.createDummyConfig());
+  }
+
+  runConfig(config: IRosettaConfig) {
+    return this._http.post(this.POST_URL, config);
   }
 
   createDummyConfig() {

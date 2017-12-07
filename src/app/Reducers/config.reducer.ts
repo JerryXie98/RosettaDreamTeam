@@ -4,7 +4,7 @@ import * as ConfigActions from '../Actions/config.actions';
 export type Action = ConfigActions.All;
 
 const defaultConfig: IRosettaConfig = {
-  Options: { NumberMapper: '' },
+  Options: { },
   Registrations: [{
     DataStore: '',
     LidDomainId: '',

@@ -11,7 +11,7 @@ export interface IRosettaConfig {
 }
 
 export interface Options {
-  NumberMapper: string;
+  [key: string]: any;
 }
 
 export interface Registration {

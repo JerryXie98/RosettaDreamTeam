@@ -1,11 +1,12 @@
 import { Action } from '@ngrx/store';
 import {
+  Blocking,
   DataStore, Diagnostics, LidStorageProvider, Matching, MidProvider, Options, Registration,
   Standardization
 } from '../Models/irosetta-config';
 
 export const EDIT_OPTIONS = '[Config] Update Options';
-export const EDIT_REGISTRATIONS = '[Config] Update Options';
+export const EDIT_REGISTRATIONS = '[Config] Update Registrations';
 export const EDIT_STANDARDIZATIONS = '[Config] Update Standardization';
 export const EDIT_BLOCKING = '[Config] Update Blocking';
 export const EDIT_DATASTORES = '[Config] Update Datastores';
@@ -31,7 +32,7 @@ export class EditStandardizations implements Action {
 
 export class EditBlocking implements  Action {
   readonly  type = EDIT_BLOCKING;
-  constructor(public payload: Standardization) {}
+  constructor(public payload: Blocking) {}
 }
 
 export class EditDataStores implements Action {
